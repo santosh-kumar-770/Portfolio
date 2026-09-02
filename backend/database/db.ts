@@ -12,18 +12,39 @@ export interface MessageRecord {
   status: string;
 }
 
-// Ensure database directory exists
-const dbDir = path.resolve(process.cwd(), 'backend', 'database');
+export interface IDatabaseAdapter {
+  insertMessage(msg: MessageRecord): void;
+  getAllMessages(search?: string, filter?: 'ALL' | 'UNREAD' | 'READ'): MessageRecord[];
+  getMessageById(id: string): MessageRecord | null;
+  updateMessageRead(id: string, read: boolean): boolean;
+  deleteMessage(id: string): boolean;
+  getStats(): { total: number; unread: number; today: number; thisWeek: number };
+}
+
+// Determine safe storage directory (uses /tmp on Vercel/serverless environments to prevent EROFS errors)
+const isVercel = Boolean(process.env.VERCEL || process.env.AWS_LAMBDA_FUNCTION_NAME);
+const dbDir = isVercel
+  ? '/tmp'
+  : path.resolve(process.cwd(), 'backend', 'database');
+
 if (!fs.existsSync(dbDir)) {
-  fs.mkdirSync(dbDir, { recursive: true });
+  try {
+    fs.mkdirSync(dbDir, { recursive: true });
+  } catch {
+    // /tmp exists by default
+  }
 }
 
 const dbPath = path.join(dbDir, 'portfolio.db');
 export const db = new DatabaseSync(dbPath);
 
-// Enable WAL mode for high performance and concurrency
-db.exec('PRAGMA journal_mode = WAL;');
-db.exec('PRAGMA synchronous = NORMAL;');
+// Enable WAL mode for high concurrency
+try {
+  db.exec('PRAGMA journal_mode = WAL;');
+  db.exec('PRAGMA synchronous = NORMAL;');
+} catch {
+  // Safe fallback if WAL is restricted
+}
 
 // Initialize tables and indexes
 db.exec(`
@@ -47,12 +68,6 @@ const stmtInsert = db.prepare(`
   VALUES (?, ?, ?, ?, ?, ?, ?)
 `);
 
-const stmtSelectAll = db.prepare(`
-  SELECT id, name, email, message, created_at, read, status
-  FROM messages
-  ORDER BY created_at DESC
-`);
-
 const stmtSelectById = db.prepare(`
   SELECT id, name, email, message, created_at, read, status
   FROM messages
@@ -70,7 +85,7 @@ const stmtDelete = db.prepare(`
   WHERE id = ?
 `);
 
-export const databaseOperations = {
+export const databaseOperations: IDatabaseAdapter = {
   insertMessage(msg: MessageRecord): void {
     stmtInsert.run(msg.id, msg.name, msg.email, msg.message, msg.created_at, msg.read, msg.status);
   },
