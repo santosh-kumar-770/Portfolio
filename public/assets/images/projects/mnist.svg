@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b1329" />
+      <stop offset="50%" stop-color="#090d16" />
+      <stop offset="100%" stop-color="#030712" />
+    </linearGradient>
+    <linearGradient id="neonCyan" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#06b6d4" />
+      <stop offset="100%" stop-color="#3b82f6" />
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="600" fill="url(#bgGrad2)" />
+
+  <!-- Code / Terminal Window -->
+  <g transform="translate(80, 70)">
+    <rect width="640" height="460" rx="12" fill="#0f172a" stroke="#1e293b" stroke-width="1.5" />
+    <rect width="640" height="40" rx="12" fill="#0b1120" />
+    <circle cx="24" cy="20" r="5" fill="#ef4444" opacity="0.8" />
+    <circle cx="42" cy="20" r="5" fill="#eab308" opacity="0.8" />
+    <circle cx="60" cy="20" r="5" fill="#22c55e" opacity="0.8" />
+    <text x="320" y="25" fill="#64748b" font-family="monospace" font-size="12" text-anchor="middle">nn_scratch_mnist.py — NumPy Matrix Engine</text>
+
+    <!-- Neural network diagram overlay -->
+    <g transform="translate(40, 60)">
+      <!-- Left side: Code snippet -->
+      <text x="0" y="30" fill="#94a3b8" font-family="monospace" font-size="12"># Forward Propagation</text>
+      <text x="0" y="52" fill="#38bdf8" font-family="monospace" font-size="12">Z1 = np.dot(W1, X) + b1</text>
+      <text x="0" y="74" fill="#2dd4bf" font-family="monospace" font-size="12">A1 = np.maximum(0, Z1)  <tspan fill="#64748b"># ReLU</tspan></text>
+      <text x="0" y="96" fill="#38bdf8" font-family="monospace" font-size="12">Z2 = np.dot(W2, A1) + b2</text>
+      <text x="0" y="118" fill="#e879f9" font-family="monospace" font-size="12">A2 = np.exp(Z2) / np.sum(np.exp(Z2), axis=0) <tspan fill="#64748b"># Softmax</tspan></text>
+      
+      <text x="0" y="160" fill="#94a3b8" font-family="monospace" font-size="12"># Backpropagation &amp; Gradient Descent</text>
+      <text x="0" y="182" fill="#f43f5e" font-family="monospace" font-size="12">dZ2 = A2 - one_hot_Y</text>
+      <text x="0" y="204" fill="#fb923c" font-family="monospace" font-size="12">dW2 = 1 / m * np.dot(dZ2, A1.T)</text>
+      <text x="0" y="226" fill="#fb923c" font-family="monospace" font-size="12">db2 = 1 / m * np.sum(dZ2, axis=1, keepdims=True)</text>
+      <text x="0" y="248" fill="#fbbf24" font-family="monospace" font-size="12">dZ1 = np.dot(W2.T, dZ2) * (Z1 &gt; 0)</text>
+      <text x="0" y="270" fill="#fbbf24" font-family="monospace" font-size="12">dW1 = 1 / m * np.dot(dZ1, X.T)</text>
+      
+      <rect x="0" y="300" width="560" height="55" rx="8" fill="#020617" stroke="#1e293b" stroke-width="1" />
+      <text x="20" y="324" fill="#2dd4bf" font-family="monospace" font-size="12">[INFO] Training Epoch 500/500 — Loss: 0.1428</text>
+      <text x="20" y="342" fill="#a7f3d0" font-family="monospace" font-size="12">[RESULT] Test Split Accuracy: 94.2% (Pure NumPy without PyTorch/TF)</text>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="100%" height="100%">
+  <defs>
+    <linearGradient id="cGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#111827" />
+      <stop offset="100%" stop-color="#030712" />
+    </linearGradient>
+    <linearGradient id="neonTeal" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2dd4bf" />
+      <stop offset="100%" stop-color="#0284c7" />
+    </linearGradient>
+  </defs>
+  <rect width="600" height="600" fill="url(#cGrad1)" />
+  <circle cx="300" cy="300" r="150" fill="#14b8a6" opacity="0.1" filter="blur(40px)" />
+  
+  <!-- Post Border -->
+  <rect x="30" y="30" width="540" height="540" rx="16" fill="#0f172a" stroke="#1e293b" stroke-width="2" />
+  
+  <!-- Content Graphic -->
+  <g transform="translate(60, 60)">
+    <rect width="90" height="26" rx="13" fill="#ec4899" fill-opacity="0.2" stroke="#ec4899" stroke-width="1" />
+    <text x="45" y="17" fill="#f472b6" font-family="system-ui, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">INSTAGRAM</text>
+    
+    <text x="0" y="80" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="28" font-weight="900">DECONSTRUCTING</text>
+    <text x="0" y="115" fill="#2dd4bf" font-family="system-ui, sans-serif" font-size="28" font-weight="900">NEURAL NETWORKS</text>
+    
+    <text x="0" y="160" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="14">How backpropagation &amp; gradient descent really work.</text>
+    
+    <!-- Visual graphic -->
+    <g transform="translate(0, 190)">
+      <rect width="480" height="180" rx="10" fill="#0b1120" stroke="#1e293b" stroke-width="1" />
+      <text x="24" y="45" fill="#38bdf8" font-family="monospace" font-size="13">dL / dW = dL/dZ * dZ/dW</text>
+      <text x="24" y="80" fill="#a7f3d0" font-family="monospace" font-size="13">W_new = W_old - (alpha * dW)</text>
+      <line x1="24" y1="110" x2="456" y2="110" stroke="#1e293b" stroke-width="1" />
+      <text x="24" y="145" fill="#e2e8f0" font-family="system-ui, sans-serif" font-size="13" font-weight="600">Pure NumPy Matrix Intuition</text>
+    </g>
+    
+    <g transform="translate(0, 420)">
+      <text x="0" y="18" fill="#64748b" font-family="system-ui, sans-serif" font-size="12">@santoshkumaritte</text>
+      <text x="480" y="18" fill="#2dd4bf" font-family="system-ui, sans-serif" font-size="12" font-weight="bold" text-anchor="end">SWIPE TO LEARN →</text>
+    </g>
+  </g>
+</svg>
