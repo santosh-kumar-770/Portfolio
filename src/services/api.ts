@@ -1,5 +1,3 @@
-const API_BASE = '/api';
-
 export async function submitContactMessage(
   name: string,
   email: string,
@@ -7,7 +5,7 @@ export async function submitContactMessage(
   honeypot: string = ''
 ): Promise<{ success: boolean; message?: string; error?: string }> {
   try {
-    const response = await fetch(`${API_BASE}/messages`, {
+    const response = await fetch('/api/messages', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
