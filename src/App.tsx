@@ -11,35 +11,16 @@ import { Education } from './components/Education';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
 import { ProjectsLibrary } from './components/ProjectsLibrary';
-import { AdminLogin } from './components/AdminLogin';
-import { AdminDashboard } from './components/AdminDashboard';
-import { getAdminSession } from './services/api';
 
 export function App() {
   const [activeSection, setActiveSection] = useState<string>('hero');
-  const [currentView, setCurrentView] = useState<'portfolio' | 'projects' | 'admin'>('portfolio');
-  const [isAdminAuthenticated, setIsAdminAuthenticated] = useState<boolean>(false);
-  const [authChecking, setAuthChecking] = useState<boolean>(true);
+  const [currentView, setCurrentView] = useState<'portfolio' | 'projects'>('portfolio');
 
-  // Check admin session with backend
-  useEffect(() => {
-    async function checkAuth() {
-      const isAuth = await getAdminSession();
-      setIsAdminAuthenticated(isAuth);
-      setAuthChecking(false);
-    }
-    checkAuth();
-  }, []);
-
-  // Sync route / hash
+  // Sync route / hash for Projects Library view
   useEffect(() => {
     const handleRoute = () => {
-      const path = window.location.pathname;
       const hash = window.location.hash;
-
-      if (path === '/admin' || hash === '#admin') {
-        setCurrentView('admin');
-      } else if (hash === '#all-projects' || hash === '#projects-library') {
+      if (hash === '#all-projects' || hash === '#projects-library') {
         setCurrentView('projects');
       } else {
         setCurrentView('portfolio');
@@ -88,7 +69,7 @@ export function App() {
   const handleBackToPortfolio = () => {
     setCurrentView('portfolio');
     if (window.location.hash) {
-      window.history.pushState(null, '', window.location.pathname.replace('/admin', '/'));
+      window.history.pushState(null, '', window.location.pathname);
     }
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -96,33 +77,6 @@ export function App() {
   // Render Projects Library View
   if (currentView === 'projects') {
     return <ProjectsLibrary onBack={handleBackToPortfolio} />;
-  }
-
-  // Render Admin View
-  if (currentView === 'admin') {
-    if (authChecking) {
-      return (
-        <div className="min-h-screen bg-[#05070c] flex items-center justify-center text-slate-400 font-mono text-xs">
-          Verifying backend security session...
-        </div>
-      );
-    }
-
-    if (!isAdminAuthenticated) {
-      return (
-        <AdminLogin
-          onSuccess={() => setIsAdminAuthenticated(true)}
-          onBack={handleBackToPortfolio}
-        />
-      );
-    }
-
-    return (
-      <AdminDashboard
-        onLogout={() => setIsAdminAuthenticated(false)}
-        onBackToPortfolio={handleBackToPortfolio}
-      />
-    );
   }
 
   // Main Public Portfolio View
