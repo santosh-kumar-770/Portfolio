@@ -24,7 +24,7 @@ export const Skills: React.FC = () => {
           <div>
             <div className="inline-flex items-center gap-2 text-brand-teal font-mono text-xs uppercase tracking-wider mb-3">
               <span className="h-1.5 w-1.5 rounded-full bg-brand-teal" />
-              06 // Competencies
+              05 // Competencies
             </div>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-display text-slate-100 tracking-tight uppercase">
               Tools &amp; Capabilities.

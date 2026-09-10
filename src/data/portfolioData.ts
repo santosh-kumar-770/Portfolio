@@ -60,13 +60,33 @@ export const personalInfo: PersonalInfo = {
   certifications: [
     {
       title: 'Responsive Web Design',
-      issuer: 'FreeCodeCamp',
-      url: 'https://www.freecodecamp.org/'
+      issuer: 'freeCodeCamp',
+      url: 'https://www.freecodecamp.org/certification/Santosh714/responsive-web-design'
     },
     {
       title: 'Python (Basic)',
       issuer: 'HackerRank',
-      url: 'https://www.hackerrank.com/'
+      url: 'https://www.hackerrank.com/certificates/b8a167d45b9b'
+    },
+    {
+      title: 'Certificate of Participation',
+      issuer: 'Unstop',
+      url: 'https://unstop.com/certificate-preview/f9331ba3-3589-4e53-9598-e383e1db772f?utm_campaign=site-emails'
+    },
+    {
+      title: 'Digital Credential (2025H2S06AID)',
+      issuer: 'Hack2skill',
+      url: 'https://certificate.hack2skill.com/legacy/2025H2S06AID-I03900'
+    },
+    {
+      title: 'Certificate of Participation',
+      issuer: 'Unstop',
+      url: 'https://unstop.com/certificate-preview/e24c1a48-6f2b-4c1f-a45c-d95ec5ec2298?utm_campaign=site-emails'
+    },
+    {
+      title: 'Certificate of Participation',
+      issuer: 'Unstop',
+      url: 'https://unstop.com/certificate-preview/972752a0-94e3-4a68-8a7f-4732d37491e9?utm_campaign=site-emails'
     }
   ]
 };
