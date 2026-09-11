@@ -142,12 +142,12 @@ export const Hero: React.FC = () => {
               <div className="relative rounded-2xl overflow-hidden bg-slate-950 aspect-[4/3] flex items-center justify-center group border border-white/10 shadow-inner">
                 <img
                   src={personalInfo.profileImagePath}
-                  alt="Itte Santosh Kumar - Python & Django Developer"
+                  alt="Santosh Kumar Itte - Python & Django Developer"
                   className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#05070c] via-transparent to-transparent opacity-60" />
                 <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-xs">
-                  <span className="font-display font-semibold text-slate-200">Itte Santosh Kumar</span>
+                  <span className="font-display font-semibold text-slate-200">Santosh Kumar Itte</span>
                   <span className="font-mono text-[10px] text-brand-teal">CSE '28</span>
                 </div>
               </div>

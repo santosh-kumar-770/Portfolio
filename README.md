@@ -1,4 +1,4 @@
-# Itte Santosh Kumar — Personal Portfolio Website
+# Santosh Kumar Itte — Personal Portfolio Website
 
 A modern dark personal portfolio website built with **React**, **Vite**, **TypeScript**, and **Tailwind CSS**, featuring native **Vercel Serverless Functions** for contact messaging via **Resend**.
 

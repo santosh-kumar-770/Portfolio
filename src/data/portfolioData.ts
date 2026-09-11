@@ -1,8 +1,8 @@
 import type { PersonalInfo, Project, Experience, SkillGroup } from '../types';
 
 export const personalInfo: PersonalInfo = {
-  name: 'Itte Santosh Kumar',
-  shortName: 'Santosh Kumar',
+  name: 'Santosh Kumar Itte',
+  shortName: 'Santosh Kumar Itte',
   badge: "CSE '28 (AI & ML) · PYTHON & DJANGO DEVELOPER · BUILDER",
   taglineHeadline: [
     'BUILDING THINGS.',

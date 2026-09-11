@@ -63,7 +63,7 @@ export const ResumeSection: React.FC = () => {
 
                 <a
                   href={personalInfo.resumePdfPath}
-                  download="Santosh_Kumar_Resume.pdf"
+                  download="Santosh_Kumar_Itte_Resume.pdf"
                   className="glass-button-secondary inline-flex items-center gap-2 px-7 py-3.5 rounded-2xl text-xs sm:text-sm font-semibold uppercase tracking-wider"
                 >
                   <Download className="w-4 h-4 text-brand-teal" />

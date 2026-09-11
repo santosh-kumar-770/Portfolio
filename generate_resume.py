@@ -107,7 +107,7 @@ def create_resume():
     story = []
 
     # Title & Links
-    story.append(Paragraph("Itte Santosh Kumar", title_style))
+    story.append(Paragraph("Santosh Kumar Itte", title_style))
     story.append(Paragraph("GitHub | LinkedIn | Portfolio | santoshkumaritte7@gmail.com", header_links_style))
 
     def make_section_header(title):

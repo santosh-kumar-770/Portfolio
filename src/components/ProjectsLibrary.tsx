@@ -117,7 +117,7 @@ export const ProjectsLibrary: React.FC<ProjectsLibraryProps> = ({ onBack }) => {
             Projects Library.
           </h1>
           <p className="text-base sm:text-lg text-slate-300/85 max-w-2xl leading-relaxed font-normal">
-            Dynamic catalog of all public codebases, repositories, experiments, and open-source contributions by Itte Santosh Kumar.
+            Dynamic catalog of all public codebases, repositories, experiments, and open-source contributions by Santosh Kumar Itte.
           </p>
         </div>
 

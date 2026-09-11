@@ -41,13 +41,13 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
         <a
           href="#"
           className="flex items-center gap-2 text-slate-100 font-semibold tracking-tight text-sm focus:outline-none rounded-full"
-          aria-label="Santosh Kumar - Home"
+          aria-label="Santosh Kumar Itte - Home"
         >
           <span className="h-7 w-7 rounded-full bg-gradient-to-br from-brand-teal/30 to-brand-cyan/10 border border-brand-teal/40 flex items-center justify-center text-[11px] font-mono font-bold text-brand-accent">
             SK
           </span>
           <span className="font-display font-bold tracking-tight text-slate-200 hover:text-white transition-colors hidden sm:inline">
-            Santosh Kumar
+            Santosh Kumar Itte
           </span>
         </a>
 
